@@ -1,6 +1,7 @@
 package com.news.knews;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -9,11 +10,20 @@ public class News {
     private long seq;
     private String title;
     private String content;
+    private Date regDate;
 //    @ManyToMany(mappedBy = "newses")
 //    private List<User> userList;
 
     @OneToMany(mappedBy = "news")
     private List<Comment> commentList;
+
+    public Date getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(Date regDate) {
+        this.regDate = regDate;
+    }
 
     public String getTitle() {
         return title;

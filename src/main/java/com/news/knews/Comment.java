@@ -1,24 +1,23 @@
 package com.news.knews;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Comment {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private long seq;
-    private String title;
+    private String userId;
     private String content;
     @ManyToOne
     @JoinColumn(name = "NEWS_SEQ") //컬럼 추가
     private News news;
 
-    public String getTitle() {
-        return title;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getContent() {

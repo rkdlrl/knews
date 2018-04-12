@@ -5,22 +5,31 @@ import java.util.List;
 
 @Entity
 public class User {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private long seq;
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private String id;
+    private String password;
+    private String name;
     @ManyToMany
     @JoinTable(name = "user_scrap_news",
-            joinColumns = @JoinColumn(name = "USER_SEQ"),
+            joinColumns = @JoinColumn(name = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "NEWS_SEQ"))
     private List<News> scrapNewsList;
-    private String name;
 
-    public long getSeq() {
-        return seq;
+    public String getId() {
+        return id;
     }
 
-    public void setSeq(long seq) {
-        this.seq = seq;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {

@@ -8,14 +8,25 @@ import java.util.List;
 public class News {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private long seq;
+    @Enumerated(EnumType.STRING)
+    private Categories category;
     private String title;
     private String content;
     private Date regDate;
 //    @ManyToMany(mappedBy = "newses")
 //    private List<User> userList;
-
+    @OneToMany(mappedBy = "news")
+    private List<Scrap> scrapList;
     @OneToMany(mappedBy = "news")
     private List<Comment> commentList;
+
+    public Categories getCategory() {
+        return category;
+    }
+
+    public void setCategory(Categories category) {
+        this.category = category;
+    }
 
     public Date getRegDate() {
         return regDate;
@@ -49,13 +60,13 @@ public class News {
         this.seq = seq;
     }
 
-//    public List<User> getUserList() {
-//        return userList;
-//    }
-//
-//    public void setUserList(List<User> userList) {
-//        this.userList = userList;
-//    }
+    public List<Scrap> getScrapList() {
+        return scrapList;
+    }
+
+    public void setScrapList(List<Scrap> scrapList) {
+        this.scrapList = scrapList;
+    }
 
     public List<Comment> getCommentList() {
         return commentList;

@@ -10,11 +10,13 @@ public class User {
     private String id;
     private String password;
     private String name;
-    @ManyToMany
-    @JoinTable(name = "user_scrap_news",
-            joinColumns = @JoinColumn(name = "USER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "NEWS_SEQ"))
-    private List<News> scrapNewsList;
+//    @ManyToMany
+//    @JoinTable(name = "user_scrap_news",
+//            joinColumns = @JoinColumn(name = "USER_ID"),
+//            inverseJoinColumns = @JoinColumn(name = "NEWS_SEQ"))
+//    private List<News> scrapNewsList;
+    @OneToMany(mappedBy = "user")
+    private List<Scrap> scrapList;
 
     public String getId() {
         return id;
@@ -40,11 +42,11 @@ public class User {
         this.name = name;
     }
 
-    public List<News> getScrapNewsList() {
-        return scrapNewsList;
+    public List<Scrap> getScrapList() {
+        return scrapList;
     }
 
-    public void setScrapNewsList(List<News> scrapNewsList) {
-        this.scrapNewsList = scrapNewsList;
+    public void setScrapList(List<Scrap> scrapList) {
+        this.scrapList = scrapList;
     }
 }

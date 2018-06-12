@@ -5,8 +5,10 @@ import java.util.List;
 
 @Entity
 public class User {
-//    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private long seq;
+    
+    @Column(name="id", unique=true)
     private String id;
     private String password;
     private String name;

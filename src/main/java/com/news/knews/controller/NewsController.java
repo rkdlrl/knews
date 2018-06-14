@@ -1,13 +1,12 @@
-package com.news.knews;
+package com.news.knews.controller;
 
+import com.news.knews.domain.News;
+import com.news.knews.repo.NewsRepository;
 import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -49,7 +48,7 @@ public class NewsController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public Iterable<News> Posts(){
+    public Iterable<News> getNewsList(){
         Iterable<News> result = newsRepository.findAll();
 
         for(News item : result) {
@@ -60,7 +59,7 @@ public class NewsController {
     }
 
 
-    
+
 
     public byte[] decodeBase64ToBytes(String imageString) {
         if (imageString.startsWith(BASE_64_PREFIX))

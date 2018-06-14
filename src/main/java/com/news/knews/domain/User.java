@@ -1,4 +1,4 @@
-package com.news.knews;
+package com.news.knews.domain;
 
 import javax.persistence.*;
 import java.util.List;

@@ -1,5 +1,6 @@
-package com.news.knews;
+package com.news.knews.controller;
 
+import com.news.knews.domain.Categories;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

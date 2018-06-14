@@ -1,9 +1,10 @@
-package com.news.knews;
+package com.news.knews.repo;
 
+import com.news.knews.domain.News;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
-public interface ScrapRepository extends JpaRepository<Scrap,Long>{
+public interface NewsRepository extends JpaRepository<News,Long>{
 
 }

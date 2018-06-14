@@ -1,4 +1,4 @@
-package com.news.knews;
+package com.news.knews.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,8 +32,8 @@ public class News implements Serializable{
 //    private List<User> userList;
     @OneToMany(mappedBy = "news")
     private List<Scrap> scrapList;
-    @OneToMany(mappedBy = "news")
-    private List<Comment> commentList;
+    @OneToMany(mappedBy = "newsSeq")
+    private List<Thumbs> thumbsList;
 
     public String getFileImg() {
         return fileImg;
@@ -99,11 +99,11 @@ public class News implements Serializable{
         this.scrapList = scrapList;
     }
 
-    public List<Comment> getCommentList() {
-        return commentList;
+    public List<Thumbs> getThumbsList() {
+        return thumbsList;
     }
 
-    public void setCommentList(List<Comment> commentList) {
-        this.commentList = commentList;
+    public void setThumbsList(List<Thumbs> thumbsList) {
+        this.thumbsList = thumbsList;
     }
 }

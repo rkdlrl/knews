@@ -1,16 +1,16 @@
-package com.news.knews;
+package com.news.knews.domain;
 
 import javax.persistence.*;
 
 @Entity
-public class Comment {
+public class Thumbs {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private long seq;
     private String userId;
-    private String content;
-    @ManyToOne
+
+//    @ManyToOne    // 무한반복 에러
     @JoinColumn(name = "NEWS_SEQ") //컬럼 추가
-    private News news;
+    private long newsSeq;
 
     public String getUserId() {
         return userId;
@@ -18,14 +18,6 @@ public class Comment {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public long getSeq() {
@@ -36,11 +28,11 @@ public class Comment {
         this.seq = seq;
     }
 
-    public News getNews() {
-        return news;
+    public long getNewsSeq() {
+        return newsSeq;
     }
 
-    public void setNews(News news) {
-        this.news = news;
+    public void setNewsSeq(long newsSeq) {
+        this.newsSeq = newsSeq;
     }
 }

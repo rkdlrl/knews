@@ -30,8 +30,6 @@ public class News implements Serializable{
 
 //    @ManyToMany(mappedBy = "newses")
 //    private List<User> userList;
-    @OneToMany(mappedBy = "news")
-    private List<Scrap> scrapList;
     @OneToMany(mappedBy = "newsSeq")
     private List<Thumbs> thumbsList;
 
@@ -89,14 +87,6 @@ public class News implements Serializable{
 
     public void setSeq(long seq) {
         this.seq = seq;
-    }
-
-    public List<Scrap> getScrapList() {
-        return scrapList;
-    }
-
-    public void setScrapList(List<Scrap> scrapList) {
-        this.scrapList = scrapList;
     }
 
     public List<Thumbs> getThumbsList() {

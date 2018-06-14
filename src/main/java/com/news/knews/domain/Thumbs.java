@@ -6,6 +6,8 @@ import javax.persistence.*;
 public class Thumbs {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private long seq;
+
+    @JoinColumn(name = "user_id") //컬럼 추가   역시 단반향으로
     private String userId;
 
 //    @ManyToOne    // 무한반복 에러

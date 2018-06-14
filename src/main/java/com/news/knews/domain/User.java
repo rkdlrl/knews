@@ -5,10 +5,11 @@ import java.util.List;
 
 @Entity
 public class User {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private long seq;
+//    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+//    private long seq;
     
-    @Column(name="id", unique=true)
+//    @Column(name="id", unique=true)
+    @Id
     private String id;
     private String password;
     private String name;
@@ -17,8 +18,24 @@ public class User {
 //            joinColumns = @JoinColumn(name = "USER_ID"),
 //            inverseJoinColumns = @JoinColumn(name = "NEWS_SEQ"))
 //    private List<News> scrapNewsList;
-    @OneToMany(mappedBy = "user")
-    private List<Scrap> scrapList;
+    @OneToMany(mappedBy = "userId")
+    private List<Thumbs> thumbsList;
+
+//    public long getSeq() {
+//        return seq;
+//    }
+//
+//    public void setSeq(long seq) {
+//        this.seq = seq;
+//    }
+
+    public List<Thumbs> getThumbsList() {
+        return thumbsList;
+    }
+
+    public void setThumbsList(List<Thumbs> thumbsList) {
+        this.thumbsList = thumbsList;
+    }
 
     public String getId() {
         return id;
@@ -44,11 +61,4 @@ public class User {
         this.name = name;
     }
 
-    public List<Scrap> getScrapList() {
-        return scrapList;
-    }
-
-    public void setScrapList(List<Scrap> scrapList) {
-        this.scrapList = scrapList;
-    }
 }

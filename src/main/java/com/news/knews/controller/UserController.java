@@ -28,7 +28,7 @@ public class UserController {
     UserRepository userRepository;
 
     @RequestMapping(method = RequestMethod.POST)
-    public User PostInput(@RequestBody User user){
+    public User insertUser(@RequestBody User user){
 
         User result = userRepository.save(user);
 
@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public Iterable<User> getUserList(){
+    public Iterable<User> getUserAll(){
         Iterable<User> result = userRepository.findAll();
 
         return result;

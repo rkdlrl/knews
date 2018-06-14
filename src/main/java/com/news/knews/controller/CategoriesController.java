@@ -10,7 +10,7 @@ import java.util.Map;
 @RestController
 public class CategoriesController {
     @GetMapping("/categories")
-    public Map<String, Object> getEnum() {
+    public Map<String, Object> getCategoriesAll() {
         Map<String, Object> enums = new LinkedHashMap<>();
 
         Class categories = Categories.class;

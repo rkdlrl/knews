@@ -39,7 +39,7 @@ public class NewsController {
 
 //   dataUrl로 할땐 요렇게
     @RequestMapping(method = RequestMethod.POST)
-    public News PostInput(@RequestBody News news){
+    public News insertNews(@RequestBody News news){
 
         News result = newsRepository.save(news);
         storeNewsImg(decodeBase64ToBytes(news.getFileImg()), getImgNm(news), Paths.get(newsImgPath));
@@ -48,7 +48,7 @@ public class NewsController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public Iterable<News> getNewsList(){
+    public Iterable<News> getNewsAll(){
         Iterable<News> result = newsRepository.findAll();
 
         for(News item : result) {

@@ -30,7 +30,7 @@ public class News implements Serializable{
 
 //    @ManyToMany(mappedBy = "newses")
 //    private List<User> userList;
-    @OneToMany(mappedBy = "newsSeq")
+    @OneToMany(mappedBy = "newsSeq", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Thumbs> thumbsList;
 
     public String getFileImg() {

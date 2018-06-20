@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
@@ -105,6 +106,8 @@ public class NewsController {
 
     // 이미지 저장할때 이미지의 이름 세팅
     public String getImgNm(News news) {
-        return news.getSeq()+"_"+news.getTitle()+".png";
+        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH;mm;ss");
+        String date = transFormat.format(news.getRegDate());
+        return news.getSeq()+"_"+date+".png";
     }
 }
